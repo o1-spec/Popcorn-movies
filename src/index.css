@@ -75,7 +75,12 @@ body{
   width: 100vw;
   position: relative;
   height: 100vh;
+}
+
+.navv{
   padding: 3rem 5rem;
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 0 -10px 2px #fff;
 }
 
 .home-nav{
@@ -204,12 +209,18 @@ body{
   gap: 0.5rem;
 }
 
+.movie-box a{
+  text-decoration: none;
+}
+
 .movie-in span{
   color: #fff;
+  text-decoration: none;
   font-size: 1.4rem;
 }
 
 .movie-in span:nth-child(1){
+  text-decoration: none;
   text-transform: uppercase;
   font-size: 1.7rem;
 }
@@ -229,4 +240,112 @@ body{
   font-size: 1.4rem;
   text-transform: uppercase;
   border-top: 1px solid #fff;
+}
+
+/***************** MOVIE SECTION ******************/
+.movie-section{
+  background-image: url("../public/images/bg2.webp");
+  width: 100vw;
+  position: relative;
+  background-attachment: fixed;
+  height: 100%;
+  padding: 3rem 5rem;
+}
+
+.back{
+  padding: 6rem 6rem 2rem 6rem;
+}
+
+.back a{
+  color: #fff;
+  background-color: #ffd43b;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: all 0.6s;
+  border-radius: 5px;
+}
+
+.back a:hover{
+  background-color: #fff;
+  color: #ffd43b;
+}
+
+.movie-select{
+  color: #fff;
+  padding-top: 3rem;
+}
+
+.movie-select{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 6rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.movie-content{
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding-top: 6rem;
+}
+
+.type{
+  text-transform: capitalize;
+  font-size: 2.2rem;
+}
+
+.release{
+  display: flex;
+  align-items: center;
+  font-size: 2.2rem;
+  gap: 1.4rem;
+}
+
+.movie-content p{
+  font-size: 1.5rem;
+}
+
+.over-view{
+  font-size: 1.8rem;
+  line-height: 2rem;
+  letter-spacing: 1px;
+}
+
+.movie-content h2{
+  color: #ffd43b;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+}
+
+.movie-select-img{
+  width: 70rem;
+}
+
+.movie-select-img img{
+  border: 1px solid #fff;
+  width: 29rem;
+  height: 45rem;
+}
+
+.watch-list{
+  color: #fff;
+  background-color: #ffd43b;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.6s;
+}
+
+.watch-list:hover{
+  background-color: #fff;
+  color: #ffd43b;
 }

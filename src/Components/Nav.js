@@ -2,7 +2,7 @@ import React from "react";
 
 function Nav() {
   return (
-    <div>
+    <div className="navv">
       <div className="home-nav">
         <h2>PopCorn Movies</h2>
         <div className="social-icon">
