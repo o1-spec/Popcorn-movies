@@ -12,8 +12,20 @@ const Romance = 10749;
 const scienceFiction = 878;
 const Horror = 27;
 
-function NewNav({ fetchSearch, fetchGenre }) {
+function NewNav({ fetchSearch, fetchGenre, isNavbarOpen, setIsNavbarOpen }) {
   const [searchTerm, setSearchTerm] = useState("");
+  //const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+  const toggleNavbar = (e) => {
+    e.preventDefault();
+    setIsNavbarOpen(true);
+  };
+
+  const toggleNavbarClose = (e) => {
+    e.preventDefault();
+    setIsNavbarOpen(false);
+  };
+
   //const [searchGenre,setSearchGenre] = useState(0)
 
   const handleInputChange = (e) => {
@@ -37,12 +49,16 @@ function NewNav({ fetchSearch, fetchGenre }) {
           <input type="text" value={searchTerm} onChange={handleInputChange} />
           <button onClick={handleSearch}>Search</button>
         </div>
-        <ul className="search-links">
+        <ul className={`search-links ${isNavbarOpen ? "open" : ""}`}>
+          <Link className="mobile-close" onClick={(e) => toggleNavbarClose(e)}>
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </Link>
           <li className="search-link">
             <Link
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(Action);
               }}
             >
@@ -54,6 +70,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(Comedy);
               }}
             >
@@ -64,6 +81,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
             <Link
               to="/"
               onClick={(e) => {
+                toggleNavbarClose(e);
                 e.preventDefault();
                 handleGenre(Adventure);
               }}
@@ -76,6 +94,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(Animation);
               }}
             >
@@ -87,6 +106,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(Drama);
               }}
             >
@@ -98,6 +118,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(Crime);
               }}
             >
@@ -109,6 +130,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(Horror);
               }}
             >
@@ -120,6 +142,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(music);
               }}
             >
@@ -131,6 +154,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(Romance);
               }}
             >
@@ -142,6 +166,7 @@ function NewNav({ fetchSearch, fetchGenre }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                toggleNavbarClose(e);
                 handleGenre(scienceFiction);
               }}
             >
@@ -149,6 +174,11 @@ function NewNav({ fetchSearch, fetchGenre }) {
             </Link>
           </li>
         </ul>
+        <div className="mobile-nav">
+          <Link onClick={(e) => toggleNavbar(e)}>
+            <i className="fas fa-bars"></i>
+          </Link>
+        </div>
       </div>
     </div>
   );

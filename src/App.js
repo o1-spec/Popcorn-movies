@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./Components/Homepage";
 import MovieList from "./Components/MovieList";
@@ -9,6 +9,7 @@ const PostContext = createContext();
 
 function App() {
   const { fetchSearch, isLoading, moviesContainer, fetchGenre } = useGenres();
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   return (
     <div className="App">
@@ -19,12 +20,20 @@ function App() {
             isLoading,
             moviesContainer,
             fetchGenre,
+            isNavbarOpen,
+            setIsNavbarOpen,
           }}
         >
           <Routes>
             <Route path="/" element={<Homepage />}></Route>
-            <Route path="/movieList" element={<MovieList PostContext={PostContext}/>}></Route>
-            <Route path="/movieList/:id" element={<Movie PostContext={PostContext}/>}></Route>
+            <Route
+              path="/movieList"
+              element={<MovieList PostContext={PostContext} />}
+            ></Route>
+            <Route
+              path="/movieList/:id"
+              element={<Movie PostContext={PostContext} />}
+            ></Route>
           </Routes>
         </PostContext.Provider>
       </BrowserRouter>

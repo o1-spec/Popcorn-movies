@@ -20,6 +20,8 @@ function useGenres() {
       if (!res.ok) throw new Error("Something went wrong with fetching movies");
       const data = await res.json();
       if (data.Response === "false") throw new Error("Movies not found ");
+      if (data.results.length === 0)
+        throw new Error("No movies found for the search query");
       setMoviesContainer(data.results);
       console.log(data.results);
     } catch (err) {
@@ -29,7 +31,6 @@ function useGenres() {
     }
   }
 
-  
   async function fetchSearch(name) {
     try {
       setIsLoading(true);
@@ -73,7 +74,6 @@ function useGenres() {
     }
 
     fetchMovies();
-
   }, []);
 
   return {
