@@ -417,7 +417,7 @@ body {
     background-color: #ffd43b;
     list-style-type: none;
     width: 22vw;
-    height: 100vw;
+    height: 100vh;
     transform: translateX(100%);
     transition: all 1s;
   }
@@ -433,7 +433,7 @@ body {
   .search-links.open {
     transform: translateX(0%);
     top: 0;
-    height: 100%;
+    width: 22vw;
     transition: all 1s;
   }
 
@@ -547,6 +547,10 @@ body {
 
   .error{
     padding: 4rem 0rem;
+  }
+
+  .search-links.open{
+    width: 42vw;
   }
 }
 

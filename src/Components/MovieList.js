@@ -22,7 +22,7 @@ function MovieList({ PostContext }) {
 
   return (
     <>
-      <div
+      <div 
         onClick={() => setIsNavbarOpen(false)}
         className={`${isNavbarOpen ? "overlay" : ""}`}
       ></div>
@@ -39,7 +39,7 @@ function MovieList({ PostContext }) {
           <div className="movie-container">
             {isLoading ? (
               <Loading />
-            ) : moviesContainer.length > 0 ? (
+            ) : moviesContainer?.length > 0 ? (
               moviesContainer.map((movie) => (
                 <MovieCard movie={movie} key={movie.id} />
               ))

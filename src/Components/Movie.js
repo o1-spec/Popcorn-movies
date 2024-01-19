@@ -9,7 +9,7 @@ function Movie({ PostContext }) {
   const movieId = parseInt(id, 10);
 
   const { moviesContainer } = useContext(PostContext);
-  const selectedMovie = moviesContainer.find((movie) => movie.id === movieId);
+  const selectedMovie = moviesContainer?.find((movie) => movie.id === movieId);
 
   function getMoviePoster(posterpath) {
     return `https://media.themoviedb.org/t/p/w440_and_h660_face${posterpath}`;
@@ -25,26 +25,26 @@ function Movie({ PostContext }) {
         </div>
         <div className="movie-select">
           <div className="movie-select-img">
-            <img src={getMoviePoster(selectedMovie.poster_path)} alt="" />
+            <img src={getMoviePoster(selectedMovie?.poster_path)} alt="" />
           </div>
           <div className="movie-content">
             <h2>
               {" "}
-              {!selectedMovie.original_title
-                ? selectedMovie.name
-                : selectedMovie.original_title}
+              {!selectedMovie?.original_title
+                ? selectedMovie?.name
+                : selectedMovie?.original_title}
             </h2>
-            <span className="type">{selectedMovie.media_type}</span>
+            <span className="type">{selectedMovie?.media_type}</span>
             <div className="release">
               <span>
-                {!selectedMovie.release_date
-                  ? selectedMovie.first_air_date
-                  : selectedMovie.release_date}
+                {!selectedMovie?.release_date
+                  ? selectedMovie?.first_air_date
+                  : selectedMovie?.release_date}
               </span>
-              <span>Rating:{selectedMovie.vote_average}</span>
+              <span>Rating:{selectedMovie?.vote_average}</span>
             </div>
-            <p className="over-view">{selectedMovie.overview}</p>
-            <p>Language : {selectedMovie.original_language}</p>
+            <p className="over-view">{selectedMovie?.overview}</p>
+            <p>Language : {selectedMovie?.original_language}</p>
             <button className="watch-list">Add to watchlist</button>
           </div>
         </div>
