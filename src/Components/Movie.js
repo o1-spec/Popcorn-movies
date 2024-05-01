@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useParams, Link, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
@@ -7,6 +7,7 @@ function Movie({ PostContext }) {
   const { id } = useParams();
   //console.log(id);
   const movieId = parseInt(id, 10);
+  const location = useLocation();
 
   const { moviesContainer } = useContext(PostContext);
   const selectedMovie = moviesContainer?.find((movie) => movie.id === movieId);
@@ -14,6 +15,10 @@ function Movie({ PostContext }) {
   function getMoviePoster(posterpath) {
     return `https://media.themoviedb.org/t/p/w440_and_h660_face${posterpath}`;
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   console.log(selectedMovie);
   return (

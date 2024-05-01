@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function getMoviePoster(posterpath) {
   return `https://media.themoviedb.org/t/p/w440_and_h660_face${posterpath}`;
@@ -7,6 +7,11 @@ function getMoviePoster(posterpath) {
 
 function MovieCard({ movie }) {
   //console.log("Movie card props", movie);
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   if (!movie) {
     return null;
   }
